@@ -7,9 +7,11 @@ services:
 
 script:
   - set -e
-  - docker --version
-  - docker build -t canzea/chrome-ffmpeg .
+  - docker build -t ${PROJECT}:lastest -t ${PROJECT}:$TRAVIS_COMMIT .
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push canzea/chrome-ffmpeg:latest
-  - docker push canzea/chrome-ffmpeg:$TRAVIS_COMMIT
+  - docker push ${PROJECT}:latest
+  - docker push ${PROJECT}:$TRAVIS_COMMIT
 
+env:
+  global:
+  - PROJECT=canzea/chrome-ffmpeg
