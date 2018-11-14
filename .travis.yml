@@ -3,7 +3,7 @@ sudo: required
 language: javascript
 
 services:
-  - docker
+  - docker:1.13.1
 
 script:
   - set -e
