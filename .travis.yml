@@ -7,7 +7,7 @@ services:
 
 script:
   - set -e
-  - docker build -t ${PROJECT}:lastest -t ${PROJECT}:$TRAVIS_COMMIT .
+  - docker build -t ${PROJECT}:latest -t ${PROJECT}:$TRAVIS_COMMIT .
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push ${PROJECT}:latest
   - docker push ${PROJECT}:$TRAVIS_COMMIT
