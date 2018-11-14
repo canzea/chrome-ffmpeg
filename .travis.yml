@@ -1,12 +1,12 @@
 sudo: required
 
+language: javascript
+
 services:
   - docker
 
 script:
   - docker build -t canzea/chrome-ffmpeg .
-
-deploy:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push canzea/chrome-ffmpeg:latest
   - docker push canzea/chrome-ffmpeg:$TRAVIS_COMMIT
