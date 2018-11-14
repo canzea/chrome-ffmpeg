@@ -6,6 +6,7 @@ services:
   - docker
 
 script:
+  - set -e
   - docker build -t canzea/chrome-ffmpeg .
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push canzea/chrome-ffmpeg:latest
