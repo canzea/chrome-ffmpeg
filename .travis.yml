@@ -1,9 +1,9 @@
+dist: trusty
 sudo: required
-
-language: javascript
+language: python
 
 services:
-  - docker:1.13.1
+  - docker
 
 script:
   - set -e
